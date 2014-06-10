@@ -13,7 +13,7 @@
 #import "PersonajeCell.h"
 #import "DetailViewController.h"
 
-@interface TablaViewController ()
+@interface TablaViewController () <DetailViewControllerDelegate>
 @property (nonatomic, strong) GotModel* modelo;
 @end
 
@@ -50,11 +50,38 @@
 {
     if([segue.identifier isEqualToString:@"pushSegue"]) {
         DetailViewController* vc = segue.destinationViewController;
+        vc.delegate = self;
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
         Casa* casa = [self.modelo.casas objectAtIndex:indexPath.section];
         Personaje* personaje = [casa.personajes objectAtIndex:indexPath.row];
         vc.personaje = personaje;        
     }
+}
+
+#pragma mark - DetailViewController Delegate
+- (void)mataPersonaje:(Personaje *)personaje
+{
+    NSIndexPath* indexPath;
+    int seccion = 0;
+    for (Casa* casa in self.modelo.casas) {
+        int fila = 0;
+        for (Personaje* pers in casa.personajes) {
+            if([pers.imagen isEqual:personaje.imagen]) {
+                indexPath = [NSIndexPath indexPathForRow:fila inSection:seccion];
+                break;
+            }
+            fila+=1;
+        }
+        seccion+=1;
+    }
+    
+    Casa* casa = [self.modelo.casas objectAtIndex:indexPath.section];
+    NSMutableArray* auxPersonajes = casa.personajes.mutableCopy;
+    [auxPersonajes removeObjectAtIndex:indexPath.row];
+    casa.personajes = auxPersonajes.copy;
+    
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+
 }
 
 #pragma mark - Table view data source
