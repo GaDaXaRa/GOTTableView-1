@@ -34,6 +34,8 @@
     
     self.title = @"Game of Thrones";
     
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
     self.modelo = [[GotModel alloc] init];
     [self.modelo cargaModelo];
 }
@@ -104,4 +106,20 @@
     [self performSegueWithIdentifier:@"pushSegue" sender:self];
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"Matar";
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(editingStyle==UITableViewCellEditingStyleDelete) {
+        Casa* casa = [self.modelo.casas objectAtIndex:indexPath.section];
+        NSMutableArray* auxPersonajes = casa.personajes.mutableCopy;
+        [auxPersonajes removeObjectAtIndex:indexPath.row];
+        casa.personajes = auxPersonajes.copy;
+        
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
 @end

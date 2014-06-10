@@ -11,7 +11,7 @@
           "image": "eddard"
         },
         {
-          "name": "Catelyn (Tully) Stark",
+          "name": "Catelyn Stark",
           "description": "Catelyn Stark is an honorable woman who always wants the best for her family. She stays true to the Tully words: Family, Duty, Honor.",
           "image": "catelyn"
         }, 
@@ -69,11 +69,6 @@
           "image": "kevan"
         },  
         {
-          "name": "Cersei (Lannister) Baratheon",
-          "description": "Married to King Robert Baratheon - Daughter of Tywin Lannister",
-          "image": "cersei"
-        },
-        {
           "name": "Jaime Lannister",
           "description": "The Kingslayer - Knight of the Kingsgaurd - Son of Tywin Lannister",
           "image": "jaime"
@@ -103,7 +98,7 @@
           "image": "robert"
         },
         {
-          "name": "Cersei (Lannister) Baratheon",
+          "name": "Cersei Baratheon",
           "description": "Married to King Robert Baratheon - Daughter of Tywin Lannister",
           "image": "cersei"
         },        
@@ -215,11 +210,6 @@
       "image": "tully",            
       "theme": "Family Duty Honor",      
       "people": [
-        {
-          "name": "Catelyn (Tully) Stark",
-          "description": "Married to Eddard Stark - Daughter of Hoster Tully",
-          "image": "catelyn"
-        },
         {
           "name": "Lysa (Tully) Arryn",
           "description": "Widow of Jon Arryn - Daughter of Hoster Tully",
