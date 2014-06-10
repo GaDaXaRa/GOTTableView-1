@@ -121,6 +121,13 @@
 		8C637EAB1947671900524112 /* NuevoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C637EAA1947671900524112 /* NuevoViewController.m */; };
 		8C637EAE1947678D00524112 /* CasasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C637EAD1947678D00524112 /* CasasViewController.m */; };
 		8C637EB1194767F200524112 /* CasaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C637EB0194767F200524112 /* CasaCell.m */; };
+		8C637EB91947894900524112 /* tyrell_g.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8C637EB21947894900524112 /* tyrell_g.jpg */; };
+		8C637EBA1947894900524112 /* greyjoy_g.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8C637EB31947894900524112 /* greyjoy_g.jpg */; };
+		8C637EBB1947894900524112 /* tully_g.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8C637EB41947894900524112 /* tully_g.jpg */; };
+		8C637EBC1947894900524112 /* baratheon_g.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8C637EB51947894900524112 /* baratheon_g.jpg */; };
+		8C637EBD1947894900524112 /* stark_g.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8C637EB61947894900524112 /* stark_g.jpg */; };
+		8C637EBE1947894900524112 /* lannister_g.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8C637EB71947894900524112 /* lannister_g.jpg */; };
+		8C637EBF1947894900524112 /* targaryen_g.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8C637EB81947894900524112 /* targaryen_g.jpg */; };
 		8C924B921946E55600FF397C /* personajes.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C924B4C1946E55600FF397C /* personajes.json */; };
 		8CD142D11946E592003AE87B /* GotModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CD142D01946E592003AE87B /* GotModel.m */; };
 		8CD142D41946E790003AE87B /* Casa.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CD142D31946E790003AE87B /* Casa.m */; };
@@ -262,6 +269,13 @@
 		8C637EAD1947678D00524112 /* CasasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasasViewController.m; sourceTree = "<group>"; };
 		8C637EAF194767F200524112 /* CasaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasaCell.h; sourceTree = "<group>"; };
 		8C637EB0194767F200524112 /* CasaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasaCell.m; sourceTree = "<group>"; };
+		8C637EB21947894900524112 /* tyrell_g.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tyrell_g.jpg; sourceTree = "<group>"; };
+		8C637EB31947894900524112 /* greyjoy_g.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = greyjoy_g.jpg; sourceTree = "<group>"; };
+		8C637EB41947894900524112 /* tully_g.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tully_g.jpg; sourceTree = "<group>"; };
+		8C637EB51947894900524112 /* baratheon_g.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = baratheon_g.jpg; sourceTree = "<group>"; };
+		8C637EB61947894900524112 /* stark_g.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stark_g.jpg; sourceTree = "<group>"; };
+		8C637EB71947894900524112 /* lannister_g.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lannister_g.jpg; sourceTree = "<group>"; };
+		8C637EB81947894900524112 /* targaryen_g.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = targaryen_g.jpg; sourceTree = "<group>"; };
 		8C924B4C1946E55600FF397C /* personajes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = personajes.json; sourceTree = "<group>"; };
 		8CD142CF1946E592003AE87B /* GotModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GotModel.h; path = modelo/GotModel.h; sourceTree = "<group>"; };
 		8CD142D01946E592003AE87B /* GotModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GotModel.m; path = modelo/GotModel.m; sourceTree = "<group>"; };
@@ -298,6 +312,13 @@
 		8C2E8DFE1946FE2A00D41ED9 /* imgs */ = {
 			isa = PBXGroup;
 			children = (
+				8C637EB21947894900524112 /* tyrell_g.jpg */,
+				8C637EB31947894900524112 /* greyjoy_g.jpg */,
+				8C637EB41947894900524112 /* tully_g.jpg */,
+				8C637EB51947894900524112 /* baratheon_g.jpg */,
+				8C637EB61947894900524112 /* stark_g.jpg */,
+				8C637EB71947894900524112 /* lannister_g.jpg */,
+				8C637EB81947894900524112 /* targaryen_g.jpg */,
 				8C2E8EC71947229F00D41ED9 /* got.png */,
 				8C2E8DFF1946FE2A00D41ED9 /* aemon.png */,
 				8C2E8E001946FE2A00D41ED9 /* aerys.png */,
@@ -597,6 +618,7 @@
 				8C2E8E911946FE2A00D41ED9 /* myrcella.png in Resources */,
 				8C2E8EA01946FE2A00D41ED9 /* roose.png in Resources */,
 				8C2E8EA61946FE2A00D41ED9 /* stannis.png in Resources */,
+				8C637EB91947894900524112 /* tyrell_g.jpg in Resources */,
 				8C2E8E851946FE2A00D41ED9 /* joyeuse.png in Resources */,
 				8C2E8E651946FE2A00D41ED9 /* baratheon.png in Resources */,
 				8C2E8E661946FE2A00D41ED9 /* barristan.png in Resources */,
@@ -613,6 +635,7 @@
 				8C2E8E921946FE2A00D41ED9 /* olenna.png in Resources */,
 				8C2E8EA51946FE2A00D41ED9 /* shae.png in Resources */,
 				8C2E8EB31946FE2A00D41ED9 /* tyrell.png in Resources */,
+				8C637EBC1947894900524112 /* baratheon_g.jpg in Resources */,
 				8C2E8E601946FE2A00D41ED9 /* alton.png in Resources */,
 				8C2E8EA91946FE2A00D41ED9 /* styr.png in Resources */,
 				8C2E8E5E1946FE2A00D41ED9 /* aerys.png in Resources */,
@@ -625,6 +648,7 @@
 				8C2E8E871946FE2A00D41ED9 /* lancel.png in Resources */,
 				8C2E8E7B1946FE2A00D41ED9 /* greyjoy.png in Resources */,
 				8C2E8E9E1946FE2A00D41ED9 /* robert.png in Resources */,
+				8C637EBF1947894900524112 /* targaryen_g.jpg in Resources */,
 				8C2E8E9B1946FE2A00D41ED9 /* rhaegar.png in Resources */,
 				8C2E8E691946FE2A00D41ED9 /* brandon.png in Resources */,
 				8C2E8EB21946FE2A00D41ED9 /* tully.png in Resources */,
@@ -639,6 +663,7 @@
 				8C2E8E7D1946FE2A00D41ED9 /* jaime.png in Resources */,
 				8C2E8E611946FE2A00D41ED9 /* arryn.png in Resources */,
 				8C2E8E5D1946FE2A00D41ED9 /* aemon.png in Resources */,
+				8C637EBA1947894900524112 /* greyjoy_g.jpg in Resources */,
 				8C2E8E621946FE2A00D41ED9 /* arya.png in Resources */,
 				8C2E8E9A1946FE2A00D41ED9 /* renly.png in Resources */,
 				8C2E8E891946FE2A00D41ED9 /* lannister.png in Resources */,
@@ -646,6 +671,7 @@
 				8C2E8E961946FE2A00D41ED9 /* podrick.png in Resources */,
 				8C2E8E681946FE2A00D41ED9 /* bolton.png in Resources */,
 				8C2E8E8E1946FE2A00D41ED9 /* melisandre.png in Resources */,
+				8C637EBD1947894900524112 /* stark_g.jpg in Resources */,
 				8C2E8E971946FE2A00D41ED9 /* pypar.png in Resources */,
 				8C2E8E781946FE2A00D41ED9 /* grenn.png in Resources */,
 				8C5026421946E511009D2C47 /* InfoPlist.strings in Resources */,
@@ -656,6 +682,7 @@
 				8C2E8E5F1946FE2A00D41ED9 /* alliser.png in Resources */,
 				8C2E8EAE1946FE2A00D41ED9 /* theon.png in Resources */,
 				8C2E8E8F1946FE2A00D41ED9 /* meryn.png in Resources */,
+				8C637EBB1947894900524112 /* tully_g.jpg in Resources */,
 				8C2E8E901946FE2A00D41ED9 /* missandei.png in Resources */,
 				8C2E8EAA1946FE2A00D41ED9 /* syrio.png in Resources */,
 				8C2E8EA81946FE2A00D41ED9 /* stark.png in Resources */,
@@ -668,6 +695,7 @@
 				8C2E8E671946FE2A00D41ED9 /* benjen.png in Resources */,
 				8C2E8E731946FE2A00D41ED9 /* frey.jpg in Resources */,
 				8C2E8EC81947229F00D41ED9 /* got.png in Resources */,
+				8C637EBE1947894900524112 /* lannister_g.jpg in Resources */,
 				8C2E8E6D1946FE2A00D41ED9 /* craster.png in Resources */,
 				8C2E8E931946FE2A00D41ED9 /* olly.png in Resources */,
 				8C50264B1946E511009D2C47 /* Main.storyboard in Resources */,

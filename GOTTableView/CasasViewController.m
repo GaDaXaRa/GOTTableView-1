@@ -15,9 +15,7 @@
 @property (nonatomic, strong) GotModel* modelo;
 @end
 
-@implementation CasasViewController {
-    BOOL _usuarioHizoScroll;
-}
+@implementation CasasViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -67,7 +65,11 @@
     
     cell.nombre.text = casa.nombre;
     cell.lema.text = casa.lema;
-    cell.imagen.image = [UIImage imageNamed:casa.imagen];
+    cell.rutaImagen = [NSString stringWithFormat:@"%@_g.jpg", casa.imagen];//[UIImage imageNamed:];
+    
+    float distancia = cell.frame.origin.y-tableView.contentOffset.y;
+    [cell setOffset:distancia/self.view.bounds.size.height];
+
     
     return cell;
 }
@@ -85,26 +87,22 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
-    NSLog(@"%f", scrollView.contentOffset.y);
-    _usuarioHizoScroll = YES;
-}
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-
-    if(scrollView.contentSize.height<=0.0||!_usuarioHizoScroll)
+    if(scrollView.contentSize.height<=0.0)
         return;
     
     if((scrollView.contentOffset.y+scrollView.frame.size.height)>=scrollView.contentSize.height) {
-        NSLog(@"%f + %f >= %f", scrollView.contentOffset.y, scrollView.frame.size.height, scrollView.contentSize.height);
         scrollView.contentOffset = CGPointMake(0, scrollView.contentSize.height/2-scrollView.frame.size.height);
     }
     
     if(scrollView.contentOffset.y<=-64) {
-        NSLog(@"%f <= 0", scrollView.contentOffset.y);
-        
         scrollView.contentOffset = CGPointMake(0, scrollView.contentSize.height/2-64);
+    }
+    
+    for (CasaCell* cell in self.tableView.visibleCells) {
+        float distancia = cell.frame.origin.y-scrollView.contentOffset.y;
+        [cell setOffset:distancia/self.view.bounds.size.height];
     }
 }
 @end

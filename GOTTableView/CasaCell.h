@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface CasaCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *imagen;
+@property (weak, nonatomic) NSString *rutaImagen;
 @property (weak, nonatomic) IBOutlet UILabel *nombre;
 @property (weak, nonatomic) IBOutlet UILabel *lema;
+- (void) setOffset:(float) p;
 @end
