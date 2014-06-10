@@ -14,12 +14,15 @@
 #import "DetailViewController.h"
 #import "NuevoViewController.h"
 
-@interface TablaViewController () <DetailViewControllerDelegate, NuevoViewControllerDelegate>
+@interface TablaViewController () <DetailViewControllerDelegate, NuevoViewControllerDelegate, UISearchDisplayDelegate>
 @property (nonatomic, strong) GotModel* modelo;
 @property (nonatomic, strong) UIBarButtonItem* addButton;
+@property (nonatomic, strong) NSMutableArray* resultadosFiltrados;
 @end
 
-@implementation TablaViewController
+@implementation TablaViewController {
+    Personaje* personajeSeleccionado;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -35,6 +38,9 @@
     [super viewDidLoad];
     
     self.title = @"Game of Thrones";
+    
+    self.resultadosFiltrados = [[NSMutableArray alloc] init];
+    self.searchDisplayController.searchBar.tintColor = [UIColor redColor];
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
@@ -56,10 +62,7 @@
     if([segue.identifier isEqualToString:@"pushSegue"]) {
         DetailViewController* vc = segue.destinationViewController;
         vc.delegate = self;
-        NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
-        Casa* casa = [self.modelo.casas objectAtIndex:indexPath.section];
-        Personaje* personaje = [casa.personajes objectAtIndex:indexPath.row];
-        vc.personaje = personaje;        
+        vc.personaje = personajeSeleccionado;
     }
     if([segue.identifier isEqualToString:@"nuevoPersonaje"]) {
         UINavigationController *vc = segue.destinationViewController;
@@ -71,6 +74,20 @@
 - (void) addItem
 {
     [self performSegueWithIdentifier:@"nuevoPersonaje" sender:self];
+}
+
+- (void) filtraPersonajesConCadenaDeTexto:(NSString *) busqueda
+{
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"nombre contains[c] %@", busqueda];
+    NSArray* todos =  [self.modelo.casas valueForKeyPath:@"@distinctUnionOfArrays.personajes"];
+    self.resultadosFiltrados = [todos filteredArrayUsingPredicate:predicate].mutableCopy;
+}
+
+#pragma mark UISearchDisplayController Delegate
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filtraPersonajesConCadenaDeTexto:searchString];
+    return YES;
 }
 
 #pragma mark - NuevoViewController Delegate
@@ -120,26 +137,44 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    if(self.searchDisplayController.searchResultsTableView==tableView)
+        return 1;
+    
     return self.modelo.casas.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if(self.searchDisplayController.searchResultsTableView==tableView)
+        return self.resultadosFiltrados.count;
+    
     Casa* casa = [self.modelo.casas objectAtIndex:section];
     return casa.personajes.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Casa* casa = [self.modelo.casas objectAtIndex:indexPath.section];
-
-    PersonajeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"celdaPersonaje" forIndexPath:indexPath];
-
-    Personaje* personaje = [casa.personajes objectAtIndex:indexPath.row];
-    
-    cell.nombre.text = personaje.nombre;
-    cell.descripcion.text = personaje.descripcion;
-    cell.retrato.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", personaje.imagen]];
-    return cell;
+    if(self.searchDisplayController.searchResultsTableView==tableView) {
+        
+        PersonajeCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"celdaPersonaje" forIndexPath:indexPath];
+        Personaje* personaje = [self.resultadosFiltrados objectAtIndex:indexPath.row];
+        
+        cell.nombre.text = personaje.nombre;
+        cell.descripcion.text = personaje.descripcion;
+        cell.retrato.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", personaje.imagen]];
+        return cell;
+        
+    } else {
+        Casa* casa = [self.modelo.casas objectAtIndex:indexPath.section];
+        
+        PersonajeCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"celdaPersonaje" forIndexPath:indexPath];
+        
+        Personaje* personaje = [casa.personajes objectAtIndex:indexPath.row];
+        
+        cell.nombre.text = personaje.nombre;
+        cell.descripcion.text = personaje.descripcion;
+        cell.retrato.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", personaje.imagen]];
+        return cell;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
@@ -167,6 +202,9 @@
 #pragma mark UITableView Delegate
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    if(self.searchDisplayController.searchResultsTableView==tableView)
+        return nil;
+    
     Casa* casa = [self.modelo.casas objectAtIndex:section];
     
     UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:casa.imagen]];
@@ -185,6 +223,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(tableView == self.tableView) {
+        NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
+        Casa* casa = [self.modelo.casas objectAtIndex:indexPath.section];
+        personajeSeleccionado = [casa.personajes objectAtIndex:indexPath.row];
+    }
+    if(self.searchDisplayController.searchResultsTableView==tableView) {
+        NSIndexPath* indexPath = [tableView indexPathForSelectedRow];
+        personajeSeleccionado = [self.resultadosFiltrados objectAtIndex:indexPath.row];
+    }
+
     [self performSegueWithIdentifier:@"pushSegue" sender:self];
 }
 
