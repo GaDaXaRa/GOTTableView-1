@@ -1,5 +1,5 @@
 //
-//  OtraCelda.h
+//  DetailViewController.h
 //  GOTTableView
 //
 //  Created by Ricardo Sánchez Sotres on 10/06/14.
@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Personaje.h"
 
-@interface OtraCelda : UITableViewCell
-
+@interface DetailViewController : UIViewController
+@property (nonatomic, strong) Personaje* personaje;
 @end

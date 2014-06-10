@@ -11,7 +11,7 @@
 #import "Casa.h"
 #import "Personaje.h"
 #import "PersonajeCell.h"
-#import "OtraCelda.h"
+#import "DetailViewController.h"
 
 @interface TablaViewController ()
 @property (nonatomic, strong) GotModel* modelo;
@@ -34,8 +34,6 @@
     
     self.title = @"Game of Thrones";
     
-    [self.tableView registerClass:[OtraCelda class] forCellReuseIdentifier:@"otraCelda"];
-    
     self.modelo = [[GotModel alloc] init];
     [self.modelo cargaModelo];
 }
@@ -44,6 +42,17 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"pushSegue"]) {
+        DetailViewController* vc = segue.destinationViewController;
+        NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
+        Casa* casa = [self.modelo.casas objectAtIndex:indexPath.section];
+        Personaje* personaje = [casa.personajes objectAtIndex:indexPath.row];
+        vc.personaje = personaje;        
+    }
 }
 
 #pragma mark - Table view data source
@@ -55,20 +64,16 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     Casa* casa = [self.modelo.casas objectAtIndex:section];
-    return casa.personajes.count + 1;
+    return casa.personajes.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row==0) {
-        OtraCelda* celda = [tableView dequeueReusableCellWithIdentifier:@"otraCelda" forIndexPath:indexPath];
-        return celda;
-    }
     
     PersonajeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"celdaPersonaje" forIndexPath:indexPath];
     
     Casa* casa = [self.modelo.casas objectAtIndex:indexPath.section];
-    Personaje* personaje = [casa.personajes objectAtIndex:indexPath.row-1];
+    Personaje* personaje = [casa.personajes objectAtIndex:indexPath.row];
     
     cell.nombre.text = personaje.nombre;
     cell.descripcion.text = personaje.descripcion;
@@ -84,10 +89,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row==0)
-        return 5;
-    
     return 67;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"pushSegue" sender:self];
 }
 
 @end
