@@ -118,6 +118,9 @@
 		8C5026591946E511009D2C47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C50263B1946E511009D2C47 /* UIKit.framework */; };
 		8C5026611946E511009D2C47 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C50265F1946E511009D2C47 /* InfoPlist.strings */; };
 		8C5026631946E511009D2C47 /* GOTTableViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C5026621946E511009D2C47 /* GOTTableViewTests.m */; };
+		8C637EAB1947671900524112 /* NuevoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C637EAA1947671900524112 /* NuevoViewController.m */; };
+		8C637EAE1947678D00524112 /* CasasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C637EAD1947678D00524112 /* CasasViewController.m */; };
+		8C637EB1194767F200524112 /* CasaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C637EB0194767F200524112 /* CasaCell.m */; };
 		8C924B921946E55600FF397C /* personajes.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C924B4C1946E55600FF397C /* personajes.json */; };
 		8CD142D11946E592003AE87B /* GotModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CD142D01946E592003AE87B /* GotModel.m */; };
 		8CD142D41946E790003AE87B /* Casa.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CD142D31946E790003AE87B /* Casa.m */; };
@@ -253,6 +256,12 @@
 		8C50265E1946E511009D2C47 /* GOTTableViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GOTTableViewTests-Info.plist"; sourceTree = "<group>"; };
 		8C5026601946E511009D2C47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8C5026621946E511009D2C47 /* GOTTableViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GOTTableViewTests.m; sourceTree = "<group>"; };
+		8C637EA91947671900524112 /* NuevoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuevoViewController.h; sourceTree = "<group>"; };
+		8C637EAA1947671900524112 /* NuevoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuevoViewController.m; sourceTree = "<group>"; };
+		8C637EAC1947678D00524112 /* CasasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasasViewController.h; sourceTree = "<group>"; };
+		8C637EAD1947678D00524112 /* CasasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasasViewController.m; sourceTree = "<group>"; };
+		8C637EAF194767F200524112 /* CasaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasaCell.h; sourceTree = "<group>"; };
+		8C637EB0194767F200524112 /* CasaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasaCell.m; sourceTree = "<group>"; };
 		8C924B4C1946E55600FF397C /* personajes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = personajes.json; sourceTree = "<group>"; };
 		8CD142CF1946E592003AE87B /* GotModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GotModel.h; path = modelo/GotModel.h; sourceTree = "<group>"; };
 		8CD142D01946E592003AE87B /* GotModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GotModel.m; path = modelo/GotModel.m; sourceTree = "<group>"; };
@@ -434,6 +443,12 @@
 				8C2E8EBF194713E800D41ED9 /* PersonajeCell.m */,
 				8C2E8EC419471B6C00D41ED9 /* DetailViewController.h */,
 				8C2E8EC519471B6C00D41ED9 /* DetailViewController.m */,
+				8C637EA91947671900524112 /* NuevoViewController.h */,
+				8C637EAA1947671900524112 /* NuevoViewController.m */,
+				8C637EAC1947678D00524112 /* CasasViewController.h */,
+				8C637EAD1947678D00524112 /* CasasViewController.m */,
+				8C637EAF194767F200524112 /* CasaCell.h */,
+				8C637EB0194767F200524112 /* CasaCell.m */,
 			);
 			path = GOTTableView;
 			sourceTree = "<group>";
@@ -684,12 +699,15 @@
 			files = (
 				8CD142D41946E790003AE87B /* Casa.m in Sources */,
 				8CD142D11946E592003AE87B /* GotModel.m in Sources */,
+				8C637EAE1947678D00524112 /* CasasViewController.m in Sources */,
 				8C2E8EC619471B6C00D41ED9 /* DetailViewController.m in Sources */,
 				8C5026481946E511009D2C47 /* AppDelegate.m in Sources */,
 				8C2E8EC0194713E800D41ED9 /* PersonajeCell.m in Sources */,
 				8C2E8EBD19470F4A00D41ED9 /* TablaViewController.m in Sources */,
 				8C5026441946E511009D2C47 /* main.m in Sources */,
 				8CD142D71946E7B7003AE87B /* Personaje.m in Sources */,
+				8C637EAB1947671900524112 /* NuevoViewController.m in Sources */,
+				8C637EB1194767F200524112 /* CasaCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

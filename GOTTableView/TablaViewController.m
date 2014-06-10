@@ -12,9 +12,11 @@
 #import "Personaje.h"
 #import "PersonajeCell.h"
 #import "DetailViewController.h"
+#import "NuevoViewController.h"
 
-@interface TablaViewController () <DetailViewControllerDelegate>
+@interface TablaViewController () <DetailViewControllerDelegate, NuevoViewControllerDelegate>
 @property (nonatomic, strong) GotModel* modelo;
+@property (nonatomic, strong) UIBarButtonItem* addButton;
 @end
 
 @implementation TablaViewController
@@ -34,7 +36,10 @@
     
     self.title = @"Game of Thrones";
     
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
+    self.addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addItem)];
+    self.navigationItem.rightBarButtonItem = self.addButton;
     
     self.modelo = [[GotModel alloc] init];
     [self.modelo cargaModelo];
@@ -56,32 +61,33 @@
         Personaje* personaje = [casa.personajes objectAtIndex:indexPath.row];
         vc.personaje = personaje;        
     }
+    if([segue.identifier isEqualToString:@"nuevoPersonaje"]) {
+        UINavigationController *vc = segue.destinationViewController;
+        NuevoViewController* rootVc = [vc.viewControllers firstObject];
+        rootVc.delegate = self;
+    }
 }
 
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated
+- (void) addItem
 {
-    [super setEditing:editing animated:animated];
-    
-    [self.tableView beginUpdates];
+    [self performSegueWithIdentifier:@"nuevoPersonaje" sender:self];
+}
 
-    if(editing) {
-        
-        for (int c = 0; c<self.modelo.casas.count; c++) {
-            Casa* casa = [self.modelo.casas objectAtIndex:c];
-            NSIndexPath* indexPath = [NSIndexPath indexPathForRow:casa.personajes.count inSection:c];
-            [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-        }
-    } else {
-        
-        for (int c = 0; c<self.modelo.casas.count; c++) {
-            Casa* casa = [self.modelo.casas objectAtIndex:c];
-            NSIndexPath* indexPath = [NSIndexPath indexPathForRow:casa.personajes.count inSection:c];
-            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-        }
+#pragma mark - NuevoViewController Delegate
+- (void) personaje:(Personaje *)personaje creadoEnCasa:(NSString *)casaNuevo
+{
+    Casa* casa;
+    int seccion = 0;
+    for (int c = 0; c<self.modelo.casas.count; c++) {
+        casa = [self.modelo.casas objectAtIndex:c];
+        if([casa.nombre isEqualToString:casaNuevo])
+            break;
+        seccion += 1;
     }
     
-    [self.tableView endUpdates];
-
+    [casa addPersonaje:personaje];
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:casa.personajes.count-1 inSection:seccion];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - DetailViewController Delegate
@@ -92,7 +98,7 @@
     for (Casa* casa in self.modelo.casas) {
         int fila = 0;
         for (Personaje* pers in casa.personajes) {
-            if([pers.imagen isEqual:personaje.imagen]) {
+            if([pers.nombre isEqualToString:personaje.nombre]) {
                 indexPath = [NSIndexPath indexPathForRow:fila inSection:seccion];
                 break;
             }
@@ -119,21 +125,12 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     Casa* casa = [self.modelo.casas objectAtIndex:section];
-    
-    if(self.editing)
-        return casa.personajes.count + 1;
-    
     return casa.personajes.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Casa* casa = [self.modelo.casas objectAtIndex:indexPath.section];
-    if(indexPath.row>=casa.personajes.count && self.isEditing) {
-        UITableViewCell* celda = [tableView dequeueReusableCellWithIdentifier:@"celdaAdd" forIndexPath:indexPath];
-        celda.textLabel.text = @"Añadir Personaje";
-        return celda;
-    }
 
     PersonajeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"celdaPersonaje" forIndexPath:indexPath];
 
