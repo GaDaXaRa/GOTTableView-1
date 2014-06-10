@@ -10,7 +10,7 @@
 #import "CasasViewController.h"
 #import "Personaje.h"
 
-@interface NuevoViewController () <CasasViewControllerDelegate>
+@interface NuevoViewController () <CasasViewControllerDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *celdaCasa;
 @property (weak, nonatomic) IBOutlet UITextField *nombre;
 @property (weak, nonatomic) IBOutlet UITextView *bio;
@@ -48,6 +48,11 @@
 
 - (void) hecho
 {
+    if([self.nombre.text isEqualToString:@""] || [self.bio.text isEqualToString:@""] || [self.celdaCasa.text isEqualToString:@""]) {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Hay que introducir todos los datos" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
     Personaje* personaje = [[Personaje alloc] init];
     personaje.nombre = self.nombre.text;
     personaje.descripcion = self.bio.text;
@@ -64,10 +69,25 @@
     }
 }
 
+#pragma mark UITableView Delegate
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section==1)
+        return indexPath;
+    
+    return nil;
+}
 #pragma mark CasasViewController Delegate
 - (void) casaSeleccionada:(NSString *)nombreCasa
 {
     self.celdaCasa.text = nombreCasa;
+}
+
+#pragma mark UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 
