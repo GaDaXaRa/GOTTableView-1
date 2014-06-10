@@ -42,21 +42,32 @@
 
 #pragma mark - Table view data source
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return self.modelo.casas.count;
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
-    return self.modelo.personajes.count;
+    Casa* casa = [self.modelo.casas objectAtIndex:section];
+    return casa.personajes.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"celda" forIndexPath:indexPath];
     
-    Personaje* personaje = [self.modelo.personajes objectAtIndex:indexPath.row];
+    Casa* casa = [self.modelo.casas objectAtIndex:indexPath.section];
+    Personaje* personaje = [casa.personajes objectAtIndex:indexPath.row];
     
     cell.textLabel.text = personaje.nombre;
     cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", personaje.imagen]];
     return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    Casa* casa = [self.modelo.casas objectAtIndex:section];
+    return casa.nombre;
 }
 
 
