@@ -7,7 +7,6 @@
         <!--Tabla View Controller - Root View Controller-->
         <scene sceneID="kFc-7t-R3z">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kxR-mg-Wzp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="g9R-et-Ucx" customClass="TablaViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="67" sectionHeaderHeight="22" sectionFooterHeight="22" id="ODQ-Rd-l0a">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -51,6 +50,24 @@
                                     <segue destination="EsX-ca-Kc4" kind="push" identifier="pushSegue" trigger="accessoryAction" id="2WH-Iw-85e"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="celdaAdd" textLabel="Wfx-yY-ese" rowHeight="50" style="IBUITableViewCellStyleDefault" id="eF0-vq-P7G" customClass="PersonajeCell">
+                                <rect key="frame" x="0.0" y="153" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eF0-vq-P7G" id="FQf-3H-TdS">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="49"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wfx-yY-ese">
+                                            <rect key="frame" x="15" y="0.0" width="270" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="g9R-et-Ucx" id="Bde-bD-7vZ"/>
@@ -59,6 +76,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="3Az-o9-59w"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kxR-mg-Wzp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="449" y="-78"/>
         </scene>
@@ -121,7 +139,6 @@
         <!--Navigation Controller-->
         <scene sceneID="MZt-Tu-n5V">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xJr-8Q-qlB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="MkF-Xm-Fc1" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="N4K-jx-bUQ">
                         <autoresizingMask key="autoresizingMask"/>
@@ -130,6 +147,7 @@
                         <segue destination="g9R-et-Ucx" kind="relationship" relationship="rootViewController" id="ydk-WY-W82"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xJr-8Q-qlB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-85" y="-78"/>
         </scene>
