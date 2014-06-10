@@ -44,11 +44,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)matarDado:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-    [self.delegate mataPersonaje:self.personaje];
-}
-
 /*
 #pragma mark - Navigation
 

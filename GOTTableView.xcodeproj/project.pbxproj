@@ -104,7 +104,6 @@
 		8C2E8EBD19470F4A00D41ED9 /* TablaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2E8EBC19470F4A00D41ED9 /* TablaViewController.m */; };
 		8C2E8EC0194713E800D41ED9 /* PersonajeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2E8EBF194713E800D41ED9 /* PersonajeCell.m */; };
 		8C2E8EC619471B6C00D41ED9 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2E8EC519471B6C00D41ED9 /* DetailViewController.m */; };
-		8C2E8EC81947229F00D41ED9 /* got.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C2E8EC71947229F00D41ED9 /* got.png */; };
 		8C5026381946E511009D2C47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5026371946E511009D2C47 /* Foundation.framework */; };
 		8C50263A1946E511009D2C47 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5026391946E511009D2C47 /* CoreGraphics.framework */; };
 		8C50263C1946E511009D2C47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C50263B1946E511009D2C47 /* UIKit.framework */; };
@@ -235,7 +234,6 @@
 		8C2E8EBF194713E800D41ED9 /* PersonajeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonajeCell.m; sourceTree = "<group>"; };
 		8C2E8EC419471B6C00D41ED9 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		8C2E8EC519471B6C00D41ED9 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		8C2E8EC71947229F00D41ED9 /* got.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = got.png; sourceTree = "<group>"; };
 		8C5026341946E511009D2C47 /* GOTTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GOTTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C5026371946E511009D2C47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8C5026391946E511009D2C47 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -289,7 +287,6 @@
 		8C2E8DFE1946FE2A00D41ED9 /* imgs */ = {
 			isa = PBXGroup;
 			children = (
-				8C2E8EC71947229F00D41ED9 /* got.png */,
 				8C2E8DFF1946FE2A00D41ED9 /* aemon.png */,
 				8C2E8E001946FE2A00D41ED9 /* aerys.png */,
 				8C2E8E011946FE2A00D41ED9 /* alliser.png */,
@@ -652,7 +649,6 @@
 				8C2E8EAC1946FE2A00D41ED9 /* targaryen.jpg in Resources */,
 				8C2E8E671946FE2A00D41ED9 /* benjen.png in Resources */,
 				8C2E8E731946FE2A00D41ED9 /* frey.jpg in Resources */,
-				8C2E8EC81947229F00D41ED9 /* got.png in Resources */,
 				8C2E8E6D1946FE2A00D41ED9 /* craster.png in Resources */,
 				8C2E8E931946FE2A00D41ED9 /* olly.png in Resources */,
 				8C50264B1946E511009D2C47 /* Main.storyboard in Resources */,
