@@ -110,6 +110,29 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    Casa* casaOrigen = [self.modelo.casas objectAtIndex:sourceIndexPath.section];
+    Casa* casaDestino = [self.modelo.casas objectAtIndex:destinationIndexPath.section];
+
+    NSMutableArray* pOrigen = casaOrigen.personajes.mutableCopy;
+    NSMutableArray* pDestino = casaDestino.personajes.mutableCopy;
+    
+    if(casaDestino == casaOrigen) {
+        Personaje* personaje = [casaOrigen.personajes objectAtIndex:sourceIndexPath.row];
+        [pOrigen insertObject:personaje atIndex:destinationIndexPath.row];
+        [pOrigen removeObjectAtIndex:sourceIndexPath.row];
+        casaOrigen.personajes = pOrigen.copy;
+    } else {
+        Personaje* personaje = [casaOrigen.personajes objectAtIndex:sourceIndexPath.row];
+        [pDestino insertObject:personaje atIndex:destinationIndexPath.row];
+        [pOrigen removeObjectAtIndex:sourceIndexPath.row];
+        casaOrigen.personajes = pOrigen.copy;
+        casaDestino.personajes = pDestino.copy;
+    }
+}
+
+#pragma mark UITableView Delegate
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     Casa* casa = [self.modelo.casas objectAtIndex:section];
@@ -149,4 +172,8 @@
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
 }
+
+
+
+
 @end
