@@ -10,6 +10,7 @@
 #import "GotModel.h"
 #import "Casa.h"
 #import "Personaje.h"
+#import "PersonajeCell.h"
 
 @interface TablaViewController ()
 @property (nonatomic, strong) GotModel* modelo;
@@ -29,6 +30,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.title = @"Game of Thrones";
     
     self.modelo = [[GotModel alloc] init];
     [self.modelo cargaModelo];
@@ -54,13 +57,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"celda" forIndexPath:indexPath];
+    PersonajeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"celdaPersonaje" forIndexPath:indexPath];
     
     Casa* casa = [self.modelo.casas objectAtIndex:indexPath.section];
     Personaje* personaje = [casa.personajes objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = personaje.nombre;
-    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", personaje.imagen]];
+    cell.nombre.text = personaje.nombre;
+    cell.descripcion.text = personaje.descripcion;
+    cell.retrato.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", personaje.imagen]];
     return cell;
 }
 
@@ -70,5 +74,9 @@
     return casa.nombre;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 67;
+}
 
 @end
