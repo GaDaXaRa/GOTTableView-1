@@ -11,6 +11,7 @@
 #import "Casa.h"
 #import "Personaje.h"
 #import "PersonajeCell.h"
+#import "OtraCelda.h"
 
 @interface TablaViewController ()
 @property (nonatomic, strong) GotModel* modelo;
@@ -33,6 +34,8 @@
     
     self.title = @"Game of Thrones";
     
+    [self.tableView registerClass:[OtraCelda class] forCellReuseIdentifier:@"otraCelda"];
+    
     self.modelo = [[GotModel alloc] init];
     [self.modelo cargaModelo];
 }
@@ -52,15 +55,20 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     Casa* casa = [self.modelo.casas objectAtIndex:section];
-    return casa.personajes.count;
+    return casa.personajes.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(indexPath.row==0) {
+        OtraCelda* celda = [tableView dequeueReusableCellWithIdentifier:@"otraCelda" forIndexPath:indexPath];
+        return celda;
+    }
+    
     PersonajeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"celdaPersonaje" forIndexPath:indexPath];
     
     Casa* casa = [self.modelo.casas objectAtIndex:indexPath.section];
-    Personaje* personaje = [casa.personajes objectAtIndex:indexPath.row];
+    Personaje* personaje = [casa.personajes objectAtIndex:indexPath.row-1];
     
     cell.nombre.text = personaje.nombre;
     cell.descripcion.text = personaje.descripcion;
@@ -76,6 +84,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(indexPath.row==0)
+        return 5;
+    
     return 67;
 }
 
