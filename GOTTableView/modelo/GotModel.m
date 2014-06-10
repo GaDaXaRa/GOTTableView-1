@@ -45,12 +45,14 @@
     }
     
     NSMutableArray* personajesAux = [[NSMutableArray alloc] init];
-    
+    NSMutableSet* personajesSet = [[NSMutableSet alloc] init];
     NSMutableArray* results = [[NSMutableArray alloc] init];
     for (NSDictionary* casaDict in casas) {
         
         Casa* casa = [[Casa alloc] init];
         casa.nombre = [casaDict valueForKey:@"name"];
+        casa.lema = [casaDict valueForKey:@"theme"];
+        casa.imagen = [casaDict valueForKey:@"image"];
         
         NSArray* personajes = [casaDict valueForKey:@"people"];
         for (NSDictionary* personajeDict in personajes) {
@@ -59,7 +61,11 @@
             personaje.descripcion = [personajeDict valueForKey:@"description"];
             personaje.imagen = [personajeDict valueForKey:@"image"];
             [casa addPersonaje:personaje];
-            [personajesAux addObject:personaje];
+            
+            if(![personajesSet containsObject:personaje.imagen]) {
+                [personajesSet addObject:personaje.imagen];
+                [personajesAux addObject:personaje];
+            }
         }
         
         [results addObject:casa];

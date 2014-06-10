@@ -11,6 +11,8 @@
 
 @interface Casa : NSObject
 @property (nonatomic, strong) NSString* nombre;
+@property (nonatomic, strong) NSString* imagen;
+@property (nonatomic, strong) NSString* lema;
 @property (nonatomic, strong) NSArray* personajes;
 - (void) addPersonaje:(Personaje *) personaje;
 @end
