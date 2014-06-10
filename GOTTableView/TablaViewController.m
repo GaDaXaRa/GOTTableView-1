@@ -81,10 +81,17 @@
     return cell;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     Casa* casa = [self.modelo.casas objectAtIndex:section];
-    return casa.nombre;
+    
+    UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:casa.imagen]];
+    return imageView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 80;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
