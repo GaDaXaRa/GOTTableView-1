@@ -101,6 +101,7 @@
 		8C2E8EB81946FE2A00D41ED9 /* walder.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C2E8E5A1946FE2A00D41ED9 /* walder.png */; };
 		8C2E8EB91946FE2A00D41ED9 /* yara.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C2E8E5B1946FE2A00D41ED9 /* yara.png */; };
 		8C2E8EBA1946FE2A00D41ED9 /* ygritte.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C2E8E5C1946FE2A00D41ED9 /* ygritte.png */; };
+		8C2E8EBD19470F4A00D41ED9 /* TablaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2E8EBC19470F4A00D41ED9 /* TablaViewController.m */; };
 		8C5026381946E511009D2C47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5026371946E511009D2C47 /* Foundation.framework */; };
 		8C50263A1946E511009D2C47 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5026391946E511009D2C47 /* CoreGraphics.framework */; };
 		8C50263C1946E511009D2C47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C50263B1946E511009D2C47 /* UIKit.framework */; };
@@ -225,6 +226,8 @@
 		8C2E8E5A1946FE2A00D41ED9 /* walder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walder.png; sourceTree = "<group>"; };
 		8C2E8E5B1946FE2A00D41ED9 /* yara.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yara.png; sourceTree = "<group>"; };
 		8C2E8E5C1946FE2A00D41ED9 /* ygritte.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ygritte.png; sourceTree = "<group>"; };
+		8C2E8EBB19470F4A00D41ED9 /* TablaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TablaViewController.h; sourceTree = "<group>"; };
+		8C2E8EBC19470F4A00D41ED9 /* TablaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TablaViewController.m; sourceTree = "<group>"; };
 		8C5026341946E511009D2C47 /* GOTTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GOTTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C5026371946E511009D2C47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8C5026391946E511009D2C47 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -416,6 +419,8 @@
 				8C5026491946E511009D2C47 /* Main.storyboard */,
 				8C50264F1946E511009D2C47 /* Images.xcassets */,
 				8C50263E1946E511009D2C47 /* Supporting Files */,
+				8C2E8EBB19470F4A00D41ED9 /* TablaViewController.h */,
+				8C2E8EBC19470F4A00D41ED9 /* TablaViewController.m */,
 			);
 			path = GOTTableView;
 			sourceTree = "<group>";
@@ -666,6 +671,7 @@
 				8CD142D41946E790003AE87B /* Casa.m in Sources */,
 				8CD142D11946E592003AE87B /* GotModel.m in Sources */,
 				8C5026481946E511009D2C47 /* AppDelegate.m in Sources */,
+				8C2E8EBD19470F4A00D41ED9 /* TablaViewController.m in Sources */,
 				8C5026441946E511009D2C47 /* main.m in Sources */,
 				8CD142D71946E7B7003AE87B /* Personaje.m in Sources */,
 			);
