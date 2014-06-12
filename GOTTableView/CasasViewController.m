@@ -81,7 +81,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Casa* casa = [self.modelo.casas objectAtIndex:indexPath.row];
+    Casa* casa = [self.modelo.casas objectAtIndex:indexPath.row%self.modelo.casas.count];
 
     [self.delegate casaSeleccionada:casa.nombre];
     [self.navigationController popViewControllerAnimated:YES];
