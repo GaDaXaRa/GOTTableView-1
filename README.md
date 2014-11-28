@@ -1,4 +1,4 @@
 GOTTableView
 ============
 
-Práctica para el curso de IronHack
+IronHack class on UITableView with a parallax effect.
